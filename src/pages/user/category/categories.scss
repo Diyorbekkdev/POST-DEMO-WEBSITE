@@ -1,0 +1,114 @@
+@import "../../../sass-mixins/mixins.scss",
+  "../../../sass-mixins/placeholders.scss";
+.category__posts {
+  margin-bottom: 100px;
+  .category__wrapper {
+    padding: 90px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background: var(--lavender, #f4f0f8);
+    h1 {
+      color: var(--black, #232536);
+      text-align: center;
+      font-family: Sen;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 64px;
+      letter-spacing: -2px;
+    }
+    .description {
+      padding: 25px 0;
+      @extend %info-texts;
+      text-align: center;
+      width: 50%;
+      margin: 0 auto;
+    }
+    .show_direction {
+      color: var(--black, #232536);
+      text-align: center;
+      font-family: "Inter";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  }
+  .categorys_posts {
+    .card {
+      display: flex;
+      margin-top: 64px;
+      border-radius: 5px;
+      gap: 15px;
+      @include media(696px) {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+      }
+      .postimg_container {
+        width: 50%;
+        @include media(696px) {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+          border-radius: 12px;
+        }
+      }
+      .card_info {
+        width: 50%;
+        @include media(696px) {
+          width: 100%;
+        }
+        .name {
+          font-family: Inter;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: var(--purple, #592ea9);
+        }
+        .title {
+          margin-top: 20px;
+          margin-top: 16px;
+          @extend %category-title;
+        }
+        p {
+          @extend %info-texts;
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+    .ant-pagination {
+      margin-top: 60px !important;
+      text-align: center !important;
+      margin: 0 auto;
+    }
+  }
+  .categories_names{
+    font-family: "Sen";
+    font-size: 21px;
+    border-radius: 10px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    background: rgba(32, 32, 220, 0.664);
+  }
+  .active{
+    background: blue;
+  }
+  .custom{
+    background: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 37px -1px rgba(34, 60, 80, 0.2);
+  }
+
+}

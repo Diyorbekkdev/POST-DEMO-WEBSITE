@@ -1,0 +1,141 @@
+@import "../../../sass-mixins/mixins.scss",
+  "../../../sass-mixins/placeholders.scss";
+.header {
+  background: #232536;
+  padding: 13px 0 !important;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  &__nav {
+    @extend %df;
+    &--logo {
+      @extend %df;
+      img {
+        width: 55px;
+      }
+      h1 {
+        font-style: italic;
+        color: #fff;
+        display: flex;
+        text-transform: uppercase;
+        margin: 0;
+        span {
+          margin-right: 4px;
+        }
+        .animate-color {
+          animation: colorChangeAnimation 6s infinite;
+          transition: color 0.8s ease;
+        }
+      }
+    }
+    &--list {
+      @extend %df;
+      .nav_list {
+        @include media(810px) {
+          display: none;
+        }
+      }
+      gap: 83px;
+      ul {
+        position: relative;
+        z-index: 1;
+        @extend %df;
+        margin: 0;
+        // gap: 24px;
+        li a {
+          @extend %nav-link;
+        }
+      }
+      .active {
+        color: yellow !important;
+      }
+      button:hover {
+        background: #c1c1c1;
+      }
+      .navbar__item {
+        position: relative;
+        padding: 13px;
+        z-index: 1 !important;
+        transition: 0.3s ease-out;
+        cursor: pointer;
+        color: #fff;
+        .dropdown {
+          padding: -8px;
+          position: fixed;
+          top: 82.5px;
+          right: 0;
+          left: 0;
+          max-width: 1450px;
+          max-height: 0;
+          overflow: hidden;
+          background: red;
+          transition: max-height 0.9s ease !important;
+          background: #333;
+          p {
+            padding: 15px;
+          }
+        }
+        &:hover {
+          transition: 0.3s ease-out;
+          transition: max-height 4s ease;
+          .dropdown {
+            max-height: 1000px;
+            transition: max-height cubic-bezier(0.175, 0.885, 0.32, 1.275) ease;
+          }
+        }
+      }
+
+      .navbar__underline {
+        position: absolute;
+        place-items: center;
+        top: 65px;
+        left: 12px;
+        height: 3px;
+        width: 45px;
+        background-color: #007bff;
+        transition: transform 0.6s, width 0.3s;
+        transform-origin: left;
+      }
+    }
+    .navbar__underline {
+      transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  }
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
+@keyframes colorChangeAnimation {
+  0% {
+    color: red;
+    transition: 0.1s ease-out;
+  }
+  50% {
+    color: blue;
+    transition: 0.1s ease-out;
+  }
+  100% {
+    color: green;
+    transition: 0.1s ease-out;
+  }
+}
+
+// dark
+
+body.dark {
+  background: #000;
+  .header {
+    background: #000000cb;
+  }
+}

@@ -1,0 +1,40 @@
+
+
+
+// NewsWave
+@mixin custom-button($textColor: var(--black, #232536), $bgColor: var(--yellow, #FFD050)) {
+  color: $textColor;
+  background-color: $bgColor;
+  font-family: 'Sen';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 16px 48px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+// ADAPTIVE FONT MIXIN
+$maxWidth: 1280;
+@mixin adaptiv-font($baseSize) {
+  font-size: calc(#{$baseSize - 16px} + 16 * ((100vw - 320px) / (#{$maxWidth} - 320)));
+  // font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320)));
+
+}
+
+// first desctop
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+// first mobile
+@mixin first-mobile($px) {
+  @media (min-width: $px) {
+    @content;
+  }
+}

@@ -1,0 +1,38 @@
+.main_layout{
+    margin-top: 150px !important;
+    margin-bottom: 150px !important;
+    height: 100vh !important;
+    button{
+        margin-right: 15px;
+    }
+    label{
+        font-size: 15px !important;
+        font-weight: bold;
+    }
+    .ant-tabs-nav-wrap{
+        margin-bottom: 15px;
+    }
+    .ant-tabs-tab{
+        background: #ded9d9;
+        padding: 5px;
+        border-radius: 10px;
+    } 
+}
+
+body.dark{
+    .main_layout{
+        background: #1e1e1e;
+        border-radius: 15px;
+        padding: 25px;
+        label{
+            color: blue;
+        }
+        input{
+            background: #1e1e1e;
+            color: blue;
+        }
+        textarea{
+            background: #1e1e1e;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+{
+  "hash": "0ae6ed2b",
+  "browserHash": "88388c60",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "2fd4d5a4",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "5178d98c",
+      "needsInterop": true
+    },
+    "react-query": {
+      "src": "../../node_modules/react-query/es/index.js",
+      "file": "react-query.js",
+      "fileHash": "60053bd0",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "a8e82c3d",
+      "needsInterop": false
+    },
+    "prop-types": {
+      "src": "../../node_modules/prop-types/index.js",
+      "file": "prop-types.js",
+      "fileHash": "0121e4ab",
+      "needsInterop": true
+    },
+    "js-cookie": {
+      "src": "../../node_modules/js-cookie/dist/js.cookie.mjs",
+      "file": "js-cookie.js",
+      "fileHash": "be0d155f",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "0f0044b9",
+      "needsInterop": false
+    },
+    "antd": {
+      "src": "../../node_modules/antd/es/index.js",
+      "file": "antd.js",
+      "fileHash": "14d19d4b",
+      "needsInterop": false
+    },
+    "@ant-design/icons": {
+      "src": "../../node_modules/@ant-design/icons/es/index.js",
+      "file": "@ant-design_icons.js",
+      "fileHash": "0947ef74",
+      "needsInterop": false
+    },
+    "swiper/react": {
+      "src": "../../node_modules/swiper/swiper-react.mjs",
+      "file": "swiper_react.js",
+      "fileHash": "88bc7fe9",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-DLODMBED": {
+      "file": "chunk-DLODMBED.js"
+    },
+    "chunk-KM5JISHU": {
+      "file": "chunk-KM5JISHU.js"
+    },
+    "chunk-PQEZCWQY": {
+      "file": "chunk-PQEZCWQY.js"
+    },
+    "chunk-DZXRV6RW": {
+      "file": "chunk-DZXRV6RW.js"
+    },
+    "chunk-ZAUFE7H7": {
+      "file": "chunk-ZAUFE7H7.js"
+    },
+    "chunk-4KLNKA2P": {
+      "file": "chunk-4KLNKA2P.js"
+    },
+    "chunk-UXIASGQL": {
+      "file": "chunk-UXIASGQL.js"
+    }
+  }
+}

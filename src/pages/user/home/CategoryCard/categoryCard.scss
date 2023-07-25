@@ -1,0 +1,69 @@
+@import "../../../../sass-mixins/mixins.scss",
+  "../../../../sass-mixins/placeholders.scss";
+
+.card__row {
+  margin-top: 70px;
+  margin-bottom: 73px;
+  .category_card {
+    padding: 32px;
+    max-width: 296px;
+    height: 221.072px;
+    border: 1px solid #bbb;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+    .img__container {
+      width: 45px;
+      height: 45px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .card_title {
+      @extend %category-title;
+    }
+    .card_info {
+      margin-top: 15px;
+      @extend %info-texts;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    &:hover {
+      background: var(--yellow, #ffd050);
+    }
+  }
+}
+
+body.dark {
+
+  .category{
+    .title{
+      h1{
+        color: blue;
+        @extend %sub-heading;
+      }
+    }
+  }
+  .card__row {
+    .category_card {
+      .card__title {
+        // @extend %category-title;
+        color: blue !important;
+      }
+      .card_info {
+        margin-top: 15px;
+        @extend %info-texts;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #fff;
+      }
+    }
+  }
+}

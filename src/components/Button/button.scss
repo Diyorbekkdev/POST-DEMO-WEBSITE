@@ -1,0 +1,5 @@
+@import "../../sass-mixins/mixins.scss";
+@import "../../sass-mixins/placeholders.scss";
+.button{
+    @include custom-button(_, #fff)
+}

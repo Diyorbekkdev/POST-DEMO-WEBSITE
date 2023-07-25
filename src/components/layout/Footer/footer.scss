@@ -1,0 +1,21 @@
+@import "../../../sass-mixins/mixins.scss",
+  "../../../sass-mixins/placeholders.scss";
+.footer {
+  background: #232536;
+  .footer__wrapper {
+    padding: 54px 0;
+    @extend %df;
+    .left {
+      color: #fff;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+    .right {
+      img {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}

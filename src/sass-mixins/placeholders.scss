@@ -1,0 +1,124 @@
+@import "./mixins.scss";
+
+// navbar text styles
+%nav-link {
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--light, #fff);
+}
+// header main title style
+%main-title {
+  font-family: "Sen";
+  @include adaptiv-font(56px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px;
+  letter-spacing: -2px;
+  color: #fff;
+}
+%post-style {
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--light, #fff);
+}
+%category {
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--light, #fff);
+}
+%post-info {
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 175% */
+  color: var(--light, #fff);
+}
+%username {
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--yellow, #ffd050);
+}
+// header style end
+
+%sub-heading {
+  text-align: center;
+  font-family: "Sen";
+  @include adaptiv-font(36px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 133.333% */
+  letter-spacing: -2px;
+  color: var(--text-color);
+}
+
+%card-title {
+  font-family: "Sen";
+  @include adaptiv-font(28px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 142.857% */
+  letter-spacing: -1px;
+  color: var(--text-color);
+}
+%card-user-info {
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--card-user-text);
+}
+
+%info-texts {
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--text-color);
+  opacity: 0.699999988079071;
+}
+
+%category-title {
+  font-family: "Sen";
+  @include adaptiv-font(28px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 142.857% */
+  letter-spacing: -1px;
+  color: var(--black, #232536);
+}
+
+%author-name {
+  color: var(--purple, #592ea9);
+  font-family: "Sen";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -1px;
+}
+
+// additional styles
+%df {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

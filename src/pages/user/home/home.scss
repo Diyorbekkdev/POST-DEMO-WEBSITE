@@ -1,0 +1,116 @@
+@import "../../../sass-mixins/mixins.scss",
+  "../../../sass-mixins/placeholders.scss";
+
+.latest__post {
+  margin-top: 75px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover !important;
+  &--wrapper {
+    padding: 128px 0;
+    width: 70%;
+    @include media(500px){
+      width: 100%;
+    }
+    .info {
+      @extend %post-style;
+      
+      span {
+        @extend %category;
+      }
+    }
+    h1 {
+      margin: 24px 0;
+      @extend %main-title;
+      position: relative;
+      .firstone{
+        position: absolute;
+        top: 12px;
+        transition:all .3s ease-out;
+      }
+      &:hover{
+        .firstone{
+            display: none;
+        }
+      }
+      .underlined {
+        color: #fff;
+        flex: 1;
+        line-height: 1.2;
+        text-decoration: none;
+        background-image: linear-gradient(to right, yellow 0, yellow 100%);
+        background-position: 0 1.2em;
+        background-size: 0 100%;
+        background-repeat: no-repeat;
+        transition: background 0.5s;
+        &:hover {
+          background-size: 100% 100%;
+        }
+        &--reverse {
+          background-position: 100% -0.1em;
+          transition: background 1s; //yep, that's a long link
+          background-image: linear-gradient(to right, rgb(41, 103, 227) 0, yellow 100%);
+          
+        }
+      }
+    }
+    .user {
+      @extend %post-info;
+      span {
+        @extend %username;
+      }
+    }
+    .main_info {
+      padding-top: 16px;
+      @extend %post-info;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
+    }
+    button {
+      margin-top: 48px;
+      background: #ffd050;
+    }
+  }
+}
+
+.popular{
+  margin-bottom: 100px;
+    .wrapper{
+      margin-top: 93px;
+      margin-bottom: 64px;
+      @extend %df;
+      h1{
+        @extend %sub-heading;
+      }
+      a{
+        color: green;
+        font-size: 25px;
+      }
+    }
+}
+
+.category{
+  .title{
+    h1{
+      text-align: center;
+    }
+  }
+}
+
+body.dark{
+  .wrapper{
+    margin-top: 93px;
+    margin-bottom: 64px;
+    @extend %df;
+    h1{
+      @extend %sub-heading;
+      color: blue;
+    }
+    a{
+      color: rgb(73, 222, 73);
+      font-size: 25px;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import "../../../../sass-mixins/mixins.scss",
+  "../../../../sass-mixins/placeholders.scss";
+
+.card_row {
+  .card {
+    display: flex;
+    flex-direction: column;
+    max-width: 405px;
+    border: 1px solid #bbb;
+    .img_container {
+      max-width: 405px;
+      min-height: 200px;
+      .ant-image{
+        width: 100%;
+        height: 250px;
+      }
+      .img {
+        width: 100% !important;
+        height: 250px;
+        border-radius: 12px !important;
+      }
+    }
+    .card_user {
+      // margin-top: 20px;
+      margin-bottom: 16px;
+      @extend %info-texts;
+      span {
+        @extend %username;
+        color: blue;
+      }
+    }
+    h2 {
+      @extend %card-title;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .info_text {
+      margin-top: 16px;
+      @extend %info-texts;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  .pathToOwnPage{
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+body.dark{
+  .card_row {
+    .card {
+      .img_container{
+        .ant-image{
+          width: 100%;
+        }
+        img{
+          width: 100% !important;
+        }
+      }
+      .card_user {
+        @extend %info-texts;
+        color: #fff;
+        span {
+          @extend %username;
+          color: blue;
+        }
+      }
+      h2 {
+        @extend %card-title;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #fff;
+      }
+      .info_text {
+        margin-top: 16px;
+        @extend %info-texts;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #fff;
+      }
+    }
+    .pathToOwnPage{
+      cursor: pointer;
+    }
+  }
+}

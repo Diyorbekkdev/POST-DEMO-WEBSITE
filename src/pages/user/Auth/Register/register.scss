@@ -1,0 +1,70 @@
+@import '../../../../sass-mixins/mixins.scss';
+
+.register{
+    margin-top: 150px;
+    .registration-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        .register_name{
+            text-align: center;
+            font-size: 45px;
+            font-family: 'Sen';
+        }
+    }
+      
+      .registration-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 5px;
+      }
+      
+      .form-group {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        @include media(600px){
+            width: 80%;
+        }
+        @include media(400px){
+            width: 100%;
+        }
+      }
+      
+      label {
+        font-weight: bold;
+        padding-bottom: 5px !important;
+      }
+      
+      .custom_input{
+        height: 50px;
+        border-radius: 5px;
+        margin-top: 25px;
+        padding: 15px;
+        // outline: none;
+        border: none;
+        border: 1px solid #bbb;
+      }
+      
+      .register-btn {
+        background-color: #ffa200;
+        color: #fff;
+        border: none;
+        width: 60%;
+        padding: 25px 20px;
+        border-radius: 5px;
+        font-size: larger;
+        cursor: pointer;
+      }
+      
+      .register-btn:hover {
+        background-color: #b37700;
+      }
+}
