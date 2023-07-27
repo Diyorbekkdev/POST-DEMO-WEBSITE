@@ -6,8 +6,10 @@ import "./index.scss";
 import { QueryClientProvider } from "react-query";
 import { QueryClient } from "react-query";
 import { MainProvider } from "./context/MainContext.jsx";
+import { Provider } from "react-redux";
 import "antd/dist/reset.css";
 import AuthContextProvider from "./context/AuthContext.jsx";
+import store from "./redux/store/store.js";
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -15,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <MainProvider>
-          <App />
+          <Provider store={store}>
+            <App />
+          </Provider>
         </MainProvider>
       </AuthContextProvider>
     </QueryClientProvider>

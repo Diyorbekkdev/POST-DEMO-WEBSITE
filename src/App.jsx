@@ -15,7 +15,7 @@ import PostPage from "./pages/user/singlePost/PostPage";
 import MyPostsPage from "./pages/user/myPost/MyPostsPage";
 import AccountPage from "./pages/user/userAccount/AccountPage";
 import DashboardPage from "./pages/admin/DashboardPage";
-import UsersPage from "./pages/admin/UsersPage";
+import UsersPage from "./pages/admin/usersPage/UsersPage";
 import CategoriesPage from "./pages/admin/CategoriesPage";
 import CategoryPosts from "./pages/user/category/CategoryPosts";
 import About from "./pages/user/about/About";
@@ -30,9 +30,9 @@ function App() {
     }, 3000);
   }, []);
 
-  if (loading) {
-    return <div className="main_loading"><Spin size="large"/></div>;
-  }
+  // if (loading) {
+  //   return <div className="main_loading"><Spin size="large"/></div>;
+  // }
   return (
     <BrowserRouter>
       <Routes>

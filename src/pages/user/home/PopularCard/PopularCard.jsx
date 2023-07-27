@@ -58,7 +58,7 @@ const PopularCard = () => {
         pagination={{ clickable: true }}
       >
         {popularPost.map((card) => (
-          <SwiperSlide key={card.id} className="card">
+          <SwiperSlide key={card?._id} className="card">
             <div className="img_container">
               <Image
                 className="img"

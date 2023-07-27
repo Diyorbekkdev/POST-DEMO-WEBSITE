@@ -65,8 +65,9 @@
           padding: -8px;
           position: fixed;
           top: 82.5px;
-          right: 0;
-          left: 0;
+          display: none;
+          // right: 0px !important;
+          left: 0 !important;
           max-width: 1450px;
           max-height: 0;
           overflow: hidden;

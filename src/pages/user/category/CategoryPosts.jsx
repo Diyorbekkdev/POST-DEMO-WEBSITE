@@ -12,6 +12,7 @@ import "./categories.scss";
 
 const CategoryPosts = () => {
   const navigate = useNavigate();
+
   const {
     setSearch,
     page,
@@ -27,10 +28,9 @@ const CategoryPosts = () => {
     setCategoryId,
     setCategories,
   } = useContext(MainContext);
+
   const [categoryName, setCategorName] = useState("");
-  const onChange = (page) => {
-    setPage(page);
-  };
+
 
   useEffect(() => {
     request.get("category").then((response) => {
@@ -40,12 +40,10 @@ const CategoryPosts = () => {
 
   useEffect(() => {
     request.get(`category/${categoryId}`).then((response) => {
-      console.log(response.data);
       setCategorName(response.data);
     });
   }, [categoryId, setCategories]);
 
-  console.log(categories);
   const getPosts = useCallback(async () => {
     try {
       let { data } = await request.get(
@@ -75,6 +73,10 @@ const CategoryPosts = () => {
     />
   );
 
+  const onChange = (page) => {
+    setPage(page);
+  };
+
   const getPostId = (id) => {
     setPostId(id);
     navigate(`/posts/${id}`);
@@ -82,10 +84,9 @@ const CategoryPosts = () => {
 
   const handleCategoryChange = (categoryId) => {
     setCategoryId(categoryId);
-    setPage(1);
-    console.log(categoryId);
   };
 
+  
   return (
     <section className="category__posts">
       <div className="category__wrapper">

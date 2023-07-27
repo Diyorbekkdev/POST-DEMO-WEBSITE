@@ -1,27 +1,19 @@
 import { Fragment, useCallback, useState } from "react";
-import {
-  Button,
-  Col,
-  Form,
-  Input,
-  Row,
-  Tabs,
-  Upload,
-  message,
-} from "antd";
+import { Button, Col, Form, Input, Row, Tabs, Upload, message } from "antd";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { request } from "../../../server/request";
-import { useEffect } from "react";
-import { setAuthCookies } from "../../../server/request";
 
-import "./useraccount.scss";
-import { IMG_URl, TOKEN } from "../../../const";
+import { useEffect } from "react";
+
+import "../user/userAccount/useraccount.scss";
+
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { request } from "../../server/request";
+import { IMG_URl } from "../../const";
 const { useForm } = Form;
 const { TextArea } = Input;
 
-const AccountPage = () => {
+const Account = () => {
   let items = [
     {
       label: "Personal Information",
@@ -36,7 +28,7 @@ const AccountPage = () => {
   ];
   return (
     <Fragment>
-      <div className="container main_layout">
+      <div className="container ">
         <Tabs defaultActiveKey="info" centered items={items} />
       </div>
     </Fragment>
@@ -44,7 +36,7 @@ const AccountPage = () => {
 };
 
 const Information = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [form] = useForm();
   const [imgLoading, setImgLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
@@ -53,6 +45,10 @@ const Information = () => {
   const [imgId, setImgId] = useState(null);
 
   const getUserData = useCallback(() => {
+    const userAvatar = localStorage.getItem("userAvatar");
+    if (userAvatar) {
+      setImageUrl(userAvatar);
+    }
     request("auth/me").then(({ data }) => {
       form.setFieldsValue(data);
       setImageUrl(data.photo);
@@ -72,6 +68,10 @@ const Information = () => {
       let res = await request.post("upload", form);
       setImgId(res.data);
       setCallback(!callback);
+      localStorage.setItem(
+        "userAvatar",
+        `${IMG_URl}${imgId?._id}.${imgId?.name.split(".")[1]}`
+      );
       getUserData();
     } catch (err) {
       console.log(err);
@@ -81,7 +81,6 @@ const Information = () => {
   };
 
   const submit = async (values) => {
-    console.log(values);
     try {
       setLoading(true);
       await request.put("auth/details", values);
@@ -95,15 +94,15 @@ const Information = () => {
   };
 
   const handleLogout = () => {
-    Cookies.remove(TOKEN)
-    navigate('/')
+    Cookies.remove(TOKEN);
+    navigate("/");
   };
   return (
     <Row gutter={[16, 16]}>
       <Col xs={24} lg={6}>
         <Upload
-          name="avatar"
-          listType="picture-card"
+          name="Upload Img"
+          listType="picture-circle"
           className="avatar-uploader"
           showUploadList={false}
           // beforeUpload={beforeUpload}
@@ -130,6 +129,7 @@ const Information = () => {
             </div>
           )}
         </Upload>
+        
       </Col>
       <Col xs={24} lg={18}>
         <Form
@@ -227,8 +227,8 @@ const Information = () => {
           >
             <Input size="large" />
           </Form.Item>
-          <Form.Item>
-            <Button loading={loading} htmlType="submit" type="primary">
+          <Form.Item >
+            <Button loading={loading} htmlType="submit" type="primary" style={{marginRight: '15px'}}>
               Save Changes
             </Button>
             <Button type="primary" danger onClick={handleLogout}>
@@ -292,4 +292,4 @@ const Password = () => {
     </Form>
   );
 };
-export default AccountPage;
+export default Account;

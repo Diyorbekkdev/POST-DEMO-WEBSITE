@@ -87,7 +87,7 @@ const MyPostsPage = () => {
   useEffect(() => {
     getPosts();
   }, [search, page, setTotal, setMyPosts]);
-
+  
   //imgupload
   const handleImageUpload = async (e) => {
     try {
@@ -195,13 +195,11 @@ const MyPostsPage = () => {
         okText: "Delete",
         cancelText: "Cancel",
         onOk: async () => {
-          // User confirmed, proceed with the deletion
           await request.delete(`post/${id}`);
           message.success("Post deleted successfully!");
           getPosts();
         },
         onCancel: () => {
-          // User canceled the deletion
           console.log("Deletion canceled.");
         },
       });
@@ -216,6 +214,7 @@ const MyPostsPage = () => {
   const onChange = (page) => {
     setPage(page);
   };
+
   return (
     <section className="own_posts">
       <div className="container">
