@@ -30,7 +30,7 @@ import { IMG_URl } from "../../../const";
 const UsersPage = () => {
   const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selected, setSelected] = useState(null)
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,7 +39,6 @@ const UsersPage = () => {
   const [loading, setLoading] = useState(false);
   const [imgId, setImgId] = useState(null)
   const itemsPerPage = 10;
-
   const getPosts = async (searchQuery) => {
     try {
       setLoading(true);
@@ -88,7 +87,7 @@ const UsersPage = () => {
 
   const onFinish = async (values) => {
     try {
-      const { first_name, last_name, username, phoneNumber, birthday, address, email, description, photo } = values;
+      const { first_name, last_name, username, phoneNumber, birthday, address, email, description, photo, password } = values;
       const postData = {
         first_name,
         last_name,
@@ -99,10 +98,11 @@ const UsersPage = () => {
         email,
         description,
         photo: imgId,
+        password,
       };
 
-      if (selectedUser) {
-        let response = await request.put(`user/${selectedUser}`, postData);
+      if (selected) {
+        let response = await request.put(`user/${selected}`, postData);
         if (response.status === 200) {
           getPosts();
           message.success("User edited successfully!");
@@ -130,28 +130,17 @@ const UsersPage = () => {
   };
   
   const setFormFieldsForEditing = (data) => {
-    const defaultValues = {
-      first_name: "",
-      last_name: "",
-      username: "",
-      phoneNumber: "",
-      birthday: null,
-      address: "",
-      email: "",
-      description: "",
-      photo: null,
-    };
-  
     form.setFieldsValue({
-      first_name: data.first_name || defaultValues.first_name,
-      last_name: data.last_name || defaultValues.last_name,
-      username: data.username || defaultValues.username,
-      phoneNumber: data.phoneNumber || defaultValues.phoneNumber,
-      birthday: data.birthday ? moment(data.birthday, "YYYY-MM-DD") : defaultValues.birthday,
-      address: data.address || defaultValues.address,
-      email: data.email || defaultValues.email,
-      description: data.description || defaultValues.description,
-      photo: data.photo || defaultValues.photo,
+      first_name: data.first_name,
+      last_name: data.last_name,
+      username: data.username,
+      phoneNumber: data.phoneNumber,
+      birthday: data.birthday,
+      address: data.address,
+      email: data.email,
+      description: data.description,
+      photo: data.photo,
+      password: data.password,
     });
 
     const imageUrl = data.photo ? `${IMG_URl}${data.photo}` : null;
@@ -168,9 +157,8 @@ const UsersPage = () => {
   async function editUser(id) {
     try {
       let {data} = await request.get(`user/${id}`);
-      setSelectedUser(id);
       setFormFieldsForEditing(data.data);
-      console.log(data.data);
+      setSelected(id)
       showModal();
     } catch (err) {
       console.error("Error fetching user data:", err);
@@ -357,7 +345,7 @@ const UsersPage = () => {
                     >
                       <Button
                         type="primary"
-                        onClick={() => deleteUser(res._id)}
+                        onClick={() => deleteUser(res?._id)}
                         icon={<DeleteOutlined />}
                         danger
                        
@@ -365,7 +353,7 @@ const UsersPage = () => {
                         Delete
                       </Button>
                       <Button
-                        onClick={() => editUser(res._id)}
+                        onClick={() => editUser(res?._id)}
                         type="primary"
                         icon={<FormOutlined />}
                       >
@@ -389,7 +377,7 @@ const UsersPage = () => {
           </tbody>
         </table>
         <Modal
-          title={selectedUser ? "Edit User" : "Add New User"}
+          title={selected ? "Edit User" : "Add New User"}
           open={isModalOpen}
           onCancel={hideModal}
           footer={false}
@@ -486,6 +474,18 @@ const UsersPage = () => {
               <Input />
             </Form.Item>
             <Form.Item
+              name="password"
+              label="Password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter a Password!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
               name="description"
               label="Description"
               rules={[
@@ -526,7 +526,7 @@ const UsersPage = () => {
               Close
             </Button>
             <Button type="primary" htmlType="submit">
-              {selectedUser ? "Save Post" : "Add Post"}
+              {selected ? "Save Post" : "Add Post"}
             </Button>
           </Form>
         </Modal>

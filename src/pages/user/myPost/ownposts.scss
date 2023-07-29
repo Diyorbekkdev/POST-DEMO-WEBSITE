@@ -53,6 +53,22 @@
 .ownPosts__Card__Wrapper {
   margin-bottom: 100px;
 }
+.admin_post{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  place-items: center;
+  @include media(1300px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include media(1200px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media(700px){
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .card {
   display: flex;
   margin-top: 64px;

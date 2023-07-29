@@ -166,6 +166,7 @@ const MyPostsPage = () => {
     setImagePreviewUrl(null);
     setUploadedPhoto(null);
   };
+  
   const openModal = () => {
     setIsModalOpen(true);
     clearFormFields();

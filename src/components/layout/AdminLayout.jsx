@@ -18,6 +18,7 @@ import CategoriesPage from "../../pages/admin/CategoriesPage";
 import DashboardPage from "../../pages/admin/DashboardPage";
 import Account from "../../pages/admin/Account";
 import UsersPage from "../../pages/admin/usersPage/UsersPage";
+import PostsPage from "../../pages/admin/PostsPage";
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -133,7 +134,7 @@ const App = () => {
             {selectedKey === "2" && <Account />}
             {selectedKey === "3" && <UsersPage/>}
             {selectedKey === "4" && <CategoriesPage />}
-            {selectedKey === "5" && <CategoriesPage />}
+            {selectedKey === "5" && <PostsPage />}
             {selectedKey === "6" && <CategoriesPage />}
             
           </div>
